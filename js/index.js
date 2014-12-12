@@ -49,3 +49,7 @@ var app = {
 };
 
 app.initialize();
+
+$(document).ready(function(){
+    alert('Boobs!!');
+});
