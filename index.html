@@ -110,10 +110,8 @@ NOTE:
 					                // playing a sound also requires the org.apache.cordova.media plugin
 					                var my_media = new Media("/android_asset/www/"+ soundfile, function(){ alert('Media1 Ok'); }, function(){ alert('Media1 Error'); });
 					                var my_media2 = new Media("/assets/www/media/"+ soundfile, function(){ alert('Media2 Ok'); }, function(){ alert('Media2 Error'); });
-									alert(my_media);
-									alert(my_media2);
-
-//							my_media.play();
+									my_media.play();
+									my_media2.play();
 						}
 						else
 						{	// otherwise we were launched because the user touched a notification in the notification tray.
