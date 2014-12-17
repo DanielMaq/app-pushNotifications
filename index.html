@@ -83,6 +83,8 @@ NOTE:
             // handle GCM notifications for Android
             function onNotification(e) {
                 $("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
+
+				$('#infoShow').text(e.event);
                 
                 switch( e.event )
                 {
@@ -160,6 +162,7 @@ NOTE:
 					<li>Cordova PushNotification Plugin Demo</li>
 				</ul>
 			</div>
+			<div style="border: 1px solid red; display: block; margin: 50px auto 0; width: 50%;" id="infoShow"> xxx </div>
 		</div>
     </body>
 </html>
