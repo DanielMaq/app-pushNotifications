@@ -83,8 +83,6 @@ NOTE:
             // handle GCM notifications for Android
             function onNotification(e) {
                 $("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
-
-				$('#infoShow').text(e.event);
                 
                 switch( e.event )
                 {
@@ -95,7 +93,6 @@ NOTE:
 						// Your GCM push server needs to know the regID before it can push to this device
 						// here is where you might want to send it the regID for later use.
 						console.log("regID = " + e.regid);
-						$('#IDShow').text(e.regid);
 					}
                     break;
                     
@@ -163,8 +160,6 @@ NOTE:
 					<li>Cordova PushNotification Plugin Demo</li>
 				</ul>
 			</div>
-			<div style="border: 1px solid green; display: block; margin: 50px auto 0; width: 50%;" id="IDShow"> the regID </div>
-			<div style="border: 1px solid red; display: block; margin: 50px auto 0; width: 50%;" id="infoShow"> the Event </div>
 		</div>
     </body>
 </html>
