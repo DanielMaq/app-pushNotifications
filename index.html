@@ -108,12 +108,11 @@ NOTE:
 					                var soundfile = e.soundname || e.payload.sound;
 					                // if the notification contains a soundname, play it.
 					                // playing a sound also requires the org.apache.cordova.media plugin
-									alert(window.location);
-									alert(window.location.pathname);
-									alert(window.location+'/media/beep.wav');
+									var src1 = window.location+'/media/beep.wav')
+									var src =  src1.replace("index.html/", "");
 									var my_media = new Media("/android_asset/www/media/"+ soundfile, function(){ alert('Media1 Ok'); }, function(e){ alert( JSON.stringify(e) ); });
 					                var my_media2 = new Media("/assets/www/media/"+ soundfile, function(){ alert('Media2 Ok'); }, function(e){ alert( JSON.stringify(e) ); });
-					                var my_media3 = new Media("./media/"+ soundfile, function(){ alert('Media3 Ok'); }, function(e){ alert( JSON.stringify(e) ); });
+					                var my_media3 = new Media(src , function(){ alert('Media3 Ok'); }, function(e){ alert( JSON.stringify(e) ); });
 									my_media.play();
 									my_media2.play();
 									my_media3.play();
