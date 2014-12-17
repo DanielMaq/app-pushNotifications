@@ -109,7 +109,7 @@ NOTE:
 					                // if the notification contains a soundname, play it.
 					                // playing a sound also requires the org.apache.cordova.media plugin
 									alert('errors');
-					                var my_media = new Media("/android_asset/www/"+ soundfile, function(){ alert('Media1 Ok'); }, function(e){ alert( JSON.stringify(e) ); });
+					                var my_media = new Media("/android_asset/www/media/"+ soundfile, function(){ alert('Media1 Ok'); }, function(e){ alert( JSON.stringify(e) ); });
 					                var my_media2 = new Media("/assets/www/media/"+ soundfile, function(){ alert('Media2 Ok'); }, function(e){ alert( JSON.stringify(e) ); });
 					                var my_media3 = new Media("/media/"+ soundfile, function(){ alert('Media3 Ok'); }, function(e){ alert( JSON.stringify(e) ); });
 									my_media.play();
