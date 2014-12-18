@@ -156,6 +156,7 @@ NOTE:
 			document.addEventListener('deviceready', onDeviceReady, true);
 
 			$('#cts').on('click', function(){
+				alert('click!');
 				var toWho = '';
 				var token = 'master123';
 				$.ajax({
@@ -169,6 +170,7 @@ NOTE:
 						alert(JSON.stringify(error));
 					}
 				});
+				alert('Nothing happened...');
 			});
 
          </script>
