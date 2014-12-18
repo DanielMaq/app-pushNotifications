@@ -219,25 +219,27 @@ NOTE:
 	</style>
 
 	<script type="text/javascript">
-		$('.updateBtn').on('click', function(){
-			getDevices();
-		});
-
-		$('.sendBtn').on('click', function(){
-			var toWho = $(this).attr('data-person');
-			var token = 'master1234';
-			$.ajax({
-				url: 'http://projectsunderdev.com/_phonegapWebSer/sendMsg.php',
-				type:'POST',
-				data:{me: device.model, toWho: toWho, token: token},
-				success:function(result){
-					console.log(result);
-				},
-				error:function(error){
-					alert(JSON.stringify(error));
-				}
+		function bindBtns(){
+			$('.updateBtn').on('click', function(){
+				getDevices();
 			});
-		});
+
+			$('.sendBtn').on('click', function(){
+				var toWho = $(this).attr('data-person');
+				var token = 'master1234';
+				$.ajax({
+					url: 'http://projectsunderdev.com/_phonegapWebSer/sendMsg.php',
+					type:'POST',
+					data:{me: device.model, toWho: toWho, token: token},
+					success:function(result){
+						console.log(result);
+					},
+					error:function(error){
+						alert(JSON.stringify(error));
+					}
+				});
+			});
+		}
 
 		function getDevices(){
 			$.ajax({
@@ -253,6 +255,10 @@ NOTE:
 					}
 					theText += '<a href="#" class="updateBtn">Actualizar Dispositivos</a>';
 					$('#registeredDevices').text('').append(theText);
+					
+					setTimeout(function(){
+						bindBtns();
+					},200);
 				},
 				error:function(error){
 					alert(JSON.stringify(error));
