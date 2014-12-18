@@ -10,6 +10,7 @@
     <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
     <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.4.0" />
     <gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
+    <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
 
     <content src="index.html" />
     <access origin="*" />

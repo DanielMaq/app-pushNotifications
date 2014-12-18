@@ -97,7 +97,7 @@ NOTE:
 						$.ajax({
 							url: 'http://projectsunderdev.com/_phonegapWebSer/registerDevice.php',
 							type:'POST',
-							data:{newDevice: e.regid, token: 'master1234'},
+							data:{newDeviceID: e.regid, newDeviceName: device.model, token: 'master1234'},
 							success:function(result){
 								console.log(result);
 							},
@@ -182,21 +182,20 @@ NOTE:
 					<li>Cordova PushNotification Plugin Demo</li>
 				</ul>
 
-				<a href="#" class="sendBtn" style="border: 1px dashed green;color: green;display: block;font-size: 20px;height: 50px;line-height: 50px;margin: 60px auto 0;text-align: center;text-decoration: none;width: 200px;" data-me="server" data-person="all">Bother all the people!</a>
-				<a href="#" class="sendBtn" style="border: 1px dashed green;color: green;display: block;font-size: 20px;height: 50px;line-height: 50px;margin: 20px auto 0;text-align: center;text-decoration: none;width: 200px;" data-me="samsung" data-person="APA91bEY6opyRVS4xoe-TSTOvuShwIxYizLzRq3_f1jsz5y2rCjgGIzkAX7PHxdZEy65PyvB8WkC_VXPGjuAR4bXFoSRvOiPVhCHfQXgSbXYgmf-5YJuQ-fgNGSNCIrhw1evbGQPxYTAh0Df8k02kkmnswr87D-0uQ">Mandale a Sony!</a>
-				<a href="#" class="sendBtn" style="border: 1px dashed green;color: green;display: block;font-size: 20px;height: 50px;line-height: 50px;margin: 20px auto 0;text-align: center;text-decoration: none;width: 200px;" data-me="sony" data-person="APA91bFJ_lQ5rcch48n8qJDU_S1JO4DEokurR2VrkN2SUt-TlgtZGAWzPsvFBnYQkbLy9jdPe6zkGtJz-SRLarEga8RnveUCTGfW_rgBkrmFp8G4johqfqvF5b4a9SxSz3ajSJ3XLRxWQXDJCh2XdGXlk5tdDMeLzA">Mandale a Samsung!</a>
+				<a href="#" class="sendBtn" style="border: 1px dashed green;color: green;display: block;font-size: 20px;height: 50px;line-height: 50px;margin: 60px auto 0;text-align: center;text-decoration: none;width: 200px;" data-person="all">Bother all the people!</a>
+				<a href="#" class="sendBtn" style="border: 1px dashed green;color: green;display: block;font-size: 20px;height: 50px;line-height: 50px;margin: 20px auto 0;text-align: center;text-decoration: none;width: 200px;" data-person="APA91bEY6opyRVS4xoe-TSTOvuShwIxYizLzRq3_f1jsz5y2rCjgGIzkAX7PHxdZEy65PyvB8WkC_VXPGjuAR4bXFoSRvOiPVhCHfQXgSbXYgmf-5YJuQ-fgNGSNCIrhw1evbGQPxYTAh0Df8k02kkmnswr87D-0uQ">Mandale a Sony!</a>
+				<a href="#" class="sendBtn" style="border: 1px dashed green;color: green;display: block;font-size: 20px;height: 50px;line-height: 50px;margin: 20px auto 0;text-align: center;text-decoration: none;width: 200px;" data-person="APA91bFJ_lQ5rcch48n8qJDU_S1JO4DEokurR2VrkN2SUt-TlgtZGAWzPsvFBnYQkbLy9jdPe6zkGtJz-SRLarEga8RnveUCTGfW_rgBkrmFp8G4johqfqvF5b4a9SxSz3ajSJ3XLRxWQXDJCh2XdGXlk5tdDMeLzA">Mandale a Samsung!</a>
 			</div>
 		</div>
 
 	<script type="text/javascript">
 		$('.sendBtn').on('click', function(){
 			var toWho = $(this).attr('data-person');
-			var me = $(this).attr('data-me');
 			var token = 'master1234';
 			$.ajax({
 				url: 'http://projectsunderdev.com/_phonegapWebSer/sendMsg.php',
 				type:'POST',
-				data:{me: me, toWho: toWho, token: token},
+				data:{me: device.model, toWho: toWho, token: token},
 				success:function(result){
 					console.log(result);
 				},
