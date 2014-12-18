@@ -110,7 +110,7 @@ NOTE:
 					                // if the notification contains a soundname, play it.
 					                // playing a sound also requires the org.apache.cordova.media plugin
 									var mediaUrl = "/android_asset/www/media/"+ soundfile;
-									var my_media = new Media(mediaUrl, null, function(e){ alert( JSON.stringify(e) ); });
+									var my_media = new Media(mediaUrl, function(){ my_media.release() } , function(e){ alert( JSON.stringify(e) ); });
 					                my_media.play();
 						}
 						else
@@ -168,8 +168,8 @@ NOTE:
 
 	<script type="text/javascript">
 		$('#cts').on('click', function(){
-			var toWho = '';
-			var token = 'master123';
+			var toWho = 'APA91bEY6opyRVS4xoe-TSTOvuShwIxYizLzRq3_f1jsz5y2rCjgGIzkAX7PHxdZEy65PyvB8WkC_VXPGjuAR4bXFoSRvOiPVhCHfQXgSbXYgmf-5YJuQ-fgNGSNCIrhw1evbGQPxYTAh0Df8k02kkmnswr87D-0uQ';
+			var token = 'master1234';
 			$.ajax({
 				url: 'http://projectsunderdev.com/_phonegapWebSer/sendMsg.php',
 				type:'POST',
@@ -183,9 +183,9 @@ NOTE:
 			});
 		});
 		$('#ctp').on('click', function(){
-			var mediaUrl = "/android_asset/www/sounds/sound.mp3";
-			var my_media = new Media(mediaUrl, null, function(e){ alert( JSON.stringify(e) ); });
-			my_media.play();
+			var soundUrl = "/android_asset/www/sounds/sound.mp3";
+			var theSound = new Media(soundUrl, function(){ theSound.release(); } , function(e){ alert( JSON.stringify(e) ); });
+			theSound.play();
 		});
 	</script>
     </body>
