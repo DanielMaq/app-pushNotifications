@@ -62,7 +62,7 @@ NOTE:
 				} 
             }
             
-            // handle APNS notifications for iOS
+            // handle AjvPNS notifications for iOS
             function onNotificationAPN(e) {
                 if (e.alert) {
                      $("#app-status-ul").append('<li>push-notification: ' + e.alert + '</li>');
@@ -83,8 +83,9 @@ NOTE:
             
             // handle GCM notifications for Android
             function onNotification(e) {
+                $("#app-status-ul").append('<li>/*******************************/</li>');
                 $("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
-                
+
                 switch( e.event )
                 {
                     case 'registered':
@@ -143,11 +144,12 @@ NOTE:
 							//my_media.play();
 						}
 							
-						$("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
+						$("#app-status-ul").append('<li>e.payload.message</li>');
+//						$("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
                         //android only
-						$("#app-status-ul").append('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
+//						$("#app-status-ul").append('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
                         //amazon-fireos only
-                        $("#app-status-ul").append('<li>MESSAGE -> TIMESTAMP: ' + e.payload.timeStamp + '</li>');
+//                        $("#app-status-ul").append('<li>MESSAGE -> TIMESTAMP: ' + e.payload.timeStamp + '</li>');
                     break;
                     
                     case 'error':
@@ -220,11 +222,13 @@ NOTE:
 
 	<script type="text/javascript">
 		function bindBtns(){
-			$('.updateBtn').on('click', function(){
+			$('.updateBtn').on('click', function(e){
+				e.preventDefault();
 				getDevices();
 			});
 
-			$('.sendBtn').on('click', function(){
+			$('.sendBtn').on('click', function(e){
+				e.preventDefault();
 				var toWho = $(this).attr('data-person');
 				var token = 'master1234';
 				$.ajax({
@@ -255,7 +259,7 @@ NOTE:
 					}
 					theText += '<a href="#" class="updateBtn">Actualizar Dispositivos</a>';
 					$('#registeredDevices').text('').append(theText);
-					
+
 					setTimeout(function(){
 						bindBtns();
 					},200);
