@@ -99,8 +99,7 @@ NOTE:
                     
                     case 'message':
 
-						navigator.notification.beep(2);
-                    	// if this flag is set, this notification happened while we were in the foreground.
+						// if this flag is set, this notification happened while we were in the foreground.
                     	// you might want to play a sound to get the user's attention, throw up a dialog, etc.
                     	if (e.foreground)
                     	{
@@ -127,9 +126,9 @@ NOTE:
 
 
 							//Sound
-							var mediaUrl = "/android_asset/www/sounds/knock.mp3";
-							var my_media = new Media(mediaUrl, function(){ my_media.release() } , function(e){ alert( JSON.stringify(e) ); });
-							my_media.play();
+							//var mediaUrl = "/android_asset/www/sounds/knock.mp3";
+							//var my_media = new Media(mediaUrl, function(){ my_media.release() } , function(e){ alert( JSON.stringify(e) ); });
+							//my_media.play();
 						}
 							
 						$("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
