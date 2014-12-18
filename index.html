@@ -232,7 +232,12 @@ NOTE:
 				type:'POST',
 				data:{token: 'master1234'},
 				success:function(result){
-					$('#registeredDevices').text(result);
+					var theText = '';
+					for(var i = 0; i < result.length -1 ; i++){
+						var device = result[i].split('\/');
+						theText += '<a href="#" class="sendBtn" data-person="'+ device[1] +'">'+ device[0] +'</a>';
+					}
+					$('#registeredDevices').text(theText);
 				},
 				error:function(error){
 					alert(JSON.stringify(error));
