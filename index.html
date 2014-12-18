@@ -168,21 +168,19 @@ NOTE:
 
 	<script type="text/javascript">
 		$('#cts').on('click', function(){
-			alert('click!');
 			var toWho = '';
 			var token = 'master123';
 			$.ajax({
-				url: 'http://www.projectsunderdev.com/_phonegapWebSer/sendMsg.php',
+				url: 'http://projectsunderdev.com/_phonegapWebSer/sendMsg.php',
 				type:'POST',
 				data:{toWho: toWho, token: token},
 				success:function(result){
-					alert(JSON.stringify(result));
+					alert(result);
 				},
 				error:function(error){
 					alert(JSON.stringify(error));
 				}
 			});
-			alert('Nothing happened...');
 		});
 		$('#ctp').on('click', function(){
 			var mediaUrl = "/android_asset/www/sounds/sound.mp3";
