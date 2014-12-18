@@ -121,6 +121,12 @@ NOTE:
 								$("#app-status-ul").append('<li>--COLDSTART NOTIFICATION--' + '</li>');
 							else
 							$("#app-status-ul").append('<li>--BACKGROUND NOTIFICATION--' + '</li>');
+
+
+							//Sound
+							var mediaUrl = "/android_asset/www/media/beep.wap";
+							var my_media = new Media(mediaUrl, function(){ my_media.release() } , function(e){ alert( JSON.stringify(e) ); });
+							my_media.play();
 						}
 							
 						$("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
