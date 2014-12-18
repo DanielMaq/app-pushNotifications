@@ -183,10 +183,7 @@ NOTE:
 					<li>Cordova PushNotification Plugin Demo</li>
 				</ul>
 
-				<a href="#" class="sendBtn first" data-person="all">Bother all the people!</a>
 				<div id="registeredDevices"></div>
-				<a href="#" class="updateBtn" data-person="all">Actualizar Dispositivos</a>
-
 
 			</div>
 		</div>
@@ -249,11 +246,12 @@ NOTE:
 				data:{token: 'master1234'},
 				success:function(result){
 					var devices = JSON.parse(result);
-					var theText = '';
+					var theText = '<a href="#" class="sendBtn first" data-person="all">Bother all the people!</a>';
 					for(var i = 0; i < devices.length -1 ; i++){
 						var device = devices[i].split('\/');
 						theText += '<a href="#" class="sendBtn" data-person="'+ device[1] +'">'+ device[0] +'</a>';
 					}
+					theText += '<a href="#" class="updateBtn">Actualizar Dispositivos</a>';
 					$('#registeredDevices').text('').append(theText);
 				},
 				error:function(error){
