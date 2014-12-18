@@ -251,9 +251,10 @@ NOTE:
 				type:'POST',
 				data:{token: 'master1234'},
 				success:function(result){
+					var devices = JSON.parse(result);
 					var theText = '';
-					for(var i = 0; i < result.length -1 ; i++){
-						var device = result[i].split('\/');
+					for(var i = 0; i < devices.length -1 ; i++){
+						var device = devices[i].split('\/');
 						theText += '<a href="#" class="sendBtn" data-person="'+ device[1] +'">'+ device[0] +'</a>';
 					}
 					$('#registeredDevices').text(theText);
