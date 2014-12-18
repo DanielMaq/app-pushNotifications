@@ -17,7 +17,8 @@ NOTE:
 */       
         <!--<script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>-->
         <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-        <script type="text/javascript" charset="utf-8" src="js/jquery_1.5.2.min.js"></script>
+        <!--<script type="text/javascript" charset="utf-8" src="js/jquery_1.5.2.min.js"></script>-->
+        <script type="text/javascript" charset="utf-8" src="js/jquery-2.1.0.min.js"></script>
         <script type="text/javascript" src="js/PushNotification.js"></script>
         
         <script type="text/javascript">
@@ -108,7 +109,9 @@ NOTE:
 					                var soundfile = e.soundname || e.payload.sound;
 					                // if the notification contains a soundname, play it.
 					                // playing a sound also requires the org.apache.cordova.media plugin
-					                var my_media = new Media("/android_asset/www/media/"+ soundfile, function(){ alert('ok')}, function(e){ alert( JSON.stringify(e) ); });
+//									var mediaUrl = "/android_asset/www/media/"+ soundfile;
+									var mediaUrl = "/android_asset/www/sounds/sound.mp3";
+					                var my_media = new Media(mediaUrl, null, function(e){ alert( JSON.stringify(e) ); });
 									my_media.play();
 						}
 						else
@@ -152,12 +155,30 @@ NOTE:
             
 			document.addEventListener('deviceready', onDeviceReady, true);
 
+			$('#cts').on('click', function(){
+				var toWho = '';
+				var token = 'master123';
+				$.ajax({
+					url: 'http://www.projectsunderdev.com/_phonegapWebSer/sendMsg.php',
+					type:'POST',
+					data:{toWho: toWho, token: token},
+					success:function(result){
+						alert(JSON.stringify(result));
+					},
+					error:function(error){
+						alert(JSON.stringify(error));
+					}
+				});
+			});
+
          </script>
 		<div id="home">
 			<div id="app-status-div">
 				<ul id="app-status-ul">
 					<li>Cordova PushNotification Plugin Demo</li>
 				</ul>
+
+				<a href="#" id="cts" style="border: 1px dashed green;color: green;display: block;font-size: 20px;height: 50px;line-height: 50px;margin: 60px auto 0;text-align: center;text-decoration: none;width: 200px;">Mandame Mensaje!</a>
 			</div>
 		</div>
     </body>
