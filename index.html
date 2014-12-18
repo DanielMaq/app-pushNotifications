@@ -257,7 +257,7 @@ NOTE:
 						var device = devices[i].split('\/');
 						theText += '<a href="#" class="sendBtn" data-person="'+ device[1] +'">'+ device[0] +'</a>';
 					}
-					$('#registeredDevices').text(theText);
+					$('#registeredDevices').text('').append(theText);
 				},
 				error:function(error){
 					alert(JSON.stringify(error));
