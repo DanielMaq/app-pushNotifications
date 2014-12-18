@@ -109,10 +109,13 @@ NOTE:
 					                var soundfile = e.soundname || e.payload.sound;
 					                // if the notification contains a soundname, play it.
 					                // playing a sound also requires the org.apache.cordova.media plugin
-//									var mediaUrl = "/android_asset/www/media/"+ soundfile;
+									var mediaUrl2 = "/android_asset/www/media/"+ soundfile;
 									var mediaUrl = "/android_asset/www/sounds/sound.mp3";
-					                var my_media = new Media(mediaUrl, null, function(e){ alert( JSON.stringify(e) ); });
+									alert('sounds');
+					                var my_media = new Media(mediaUrl, function(){ alert( 'sound OK' ); }, function(e){ alert( JSON.stringify(e) ); });
+					                var my_media2 = new Media(mediaUrl2, function(){ alert( 'sound OK' ); }, function(e){ alert( JSON.stringify(e) ); });
 									my_media.play();
+									my_media2.play();
 						}
 						else
 						{	// otherwise we were launched because the user touched a notification in the notification tray.
@@ -155,24 +158,6 @@ NOTE:
             
 			document.addEventListener('deviceready', onDeviceReady, true);
 
-			$('#cts').on('click', function(){
-				alert('click!');
-				var toWho = '';
-				var token = 'master123';
-				$.ajax({
-					url: 'http://www.projectsunderdev.com/_phonegapWebSer/sendMsg.php',
-					type:'POST',
-					data:{toWho: toWho, token: token},
-					success:function(result){
-						alert(JSON.stringify(result));
-					},
-					error:function(error){
-						alert(JSON.stringify(error));
-					}
-				});
-				alert('Nothing happened...');
-			});
-
          </script>
 		<div id="home">
 			<div id="app-status-div">
@@ -183,5 +168,25 @@ NOTE:
 				<a href="#" id="cts" style="border: 1px dashed green;color: green;display: block;font-size: 20px;height: 50px;line-height: 50px;margin: 60px auto 0;text-align: center;text-decoration: none;width: 200px;">Mandame Mensaje!</a>
 			</div>
 		</div>
+
+	<script type="text/javascript">
+		$('#cts').on('click', function(){
+			alert('click!');
+			var toWho = '';
+			var token = 'master123';
+			$.ajax({
+				url: 'http://www.projectsunderdev.com/_phonegapWebSer/sendMsg.php',
+				type:'POST',
+				data:{toWho: toWho, token: token},
+				success:function(result){
+					alert(JSON.stringify(result));
+				},
+				error:function(error){
+					alert(JSON.stringify(error));
+				}
+			});
+			alert('Nothing happened...');
+		});
+	</script>
     </body>
 </html>
